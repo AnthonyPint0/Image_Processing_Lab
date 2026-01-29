@@ -1,0 +1,25 @@
+# Virtual environment
+.venv/
+
+# VS Code settings
+.vscode/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Image files (generated or test images)
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
