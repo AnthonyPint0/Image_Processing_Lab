@@ -8,7 +8,7 @@ Anthony Pinto Robinson
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-img = cv2.imread('img2gray.jpeg')
+img = cv2.imread('')
 if img is None:
     print("Error: Image not found!")
     exit()

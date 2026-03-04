@@ -58,5 +58,5 @@ def analyze_quantization(image_path):
   plt.tight_layout()
   plt.show()
 
-image_path = "sunflower.jpg"
+image_path = "black-and-white-eye.jpg"
 analyze_quantization(image_path)

@@ -9,7 +9,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread('sunflower.jpg')
+img = cv2.imread('black-and-white-eye.jpg')
 if img is None:
     print("Error: Image not found!")
     exit()
