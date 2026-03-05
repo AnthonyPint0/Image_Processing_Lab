@@ -3,7 +3,7 @@ Program 6. Image Restoration: Simulate image degradation (motion blur, Gaussian 
 images using Wiener filtering and inverse filtering techniques. 
     
 Anthony Pinto Robinson
-29/01/2026
+26/02/2026
 """
 
 import cv2

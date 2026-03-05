@@ -2,7 +2,7 @@
 10. Feature Extraction: Extract features using GLCM and SIFT methods with OpenCV.
 
 Anthony Pinto Robinson
-29/01/2026
+26/02/2026
 """
 import cv2
 import numpy as np

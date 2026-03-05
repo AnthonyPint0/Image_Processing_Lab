@@ -3,7 +3,7 @@ Program 16. Noise Removal and Image Enhancement: Apply noise removal techniques 
 median, and bilateral filters to enhance image quality. 
 
 Anthony Pinto Robinson
-29/01/2026
+04/03/2026
 """
 
 import cv2

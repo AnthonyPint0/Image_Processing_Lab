@@ -3,7 +3,7 @@ Program 8. Thresholding for Image Segmentation: Perform global thresholding (Ots
 adaptive thresholding for segmenting images. 
 
 Anthony Pinto Robinson
-29/01/2026
+18/02/2026
 """
 
 import cv2
