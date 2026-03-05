@@ -1,5 +1,10 @@
-# Simulate image degradation (motion blur + Gaussian noise)
-# and restore using Inverse and Wiener filtering
+""""
+Program 6. Image Restoration: Simulate image degradation (motion blur, Gaussian noise) and restore
+images using Wiener filtering and inverse filtering techniques. 
+
+Anthony Pinto Robinson
+29/01/2026
+"""
 
 import cv2
 import numpy as np

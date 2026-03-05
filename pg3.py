@@ -1,5 +1,6 @@
 """ 
-Write a Python Program to Analyze Image Quantization and Visual Degradation at Different Bit Depths
+Program 3. Image Quantization: Simulate image quantization by reducing bits per pixel and analyze
+visual degradation using Python.
 
 Anthony Pinto Robinson
 28/01/2026

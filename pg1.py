@@ -1,5 +1,6 @@
 """ 
-Write a python program to perform basic image processing operation using OpenCV
+Program 1. Image Representation and Basic Operations: Read, display, and save images; perform
+pixel-level operations, resizing, rotation, and transformations using Python. 
 
 Anthony Pinto Robinson
 18/12/2025

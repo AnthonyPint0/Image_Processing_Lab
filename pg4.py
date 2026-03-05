@@ -1,5 +1,6 @@
 """ 
-Write a Python Program to Perform Image Enhancement Using Intensity Transformations
+Program 4. Spatial Domain Filtering: Apply smoothing filters (mean, median, Gaussian) and sharpening
+filters (Laplacian, high-pass) for noise reduction and enhancement. 
 
 Anthony Pinto Robinson
 29/01/2026

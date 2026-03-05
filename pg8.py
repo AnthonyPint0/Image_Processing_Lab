@@ -1,4 +1,10 @@
-# Write a Python program to apply and compare Otsu’s global thresholding and adaptive thresholding on a grayscale image.
+"""
+Program 8. Thresholding for Image Segmentation: Perform global thresholding (Otsu’s method) and
+adaptive thresholding for segmenting images. 
+
+Anthony Pinto Robinson
+29/01/2026
+"""
 
 import cv2
 import matplotlib.pyplot as plt

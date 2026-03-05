@@ -1,5 +1,6 @@
 """ 
-Write a python program to perform basic image instensity transformations such as negative, logarithmic, power-law (Gamma), and Contrast Stretch using OpenCV
+Program 2. Gray-Level Transformations: Implement contrast stretching, logarithmic, power-law, and
+negative transformations on images. 
 
 Anthony Pinto Robinson
 21/01/2026

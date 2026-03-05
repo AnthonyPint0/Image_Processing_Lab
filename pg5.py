@@ -1,5 +1,6 @@
 """ 
-Write a Python Program to Perform Image Enhancement Using Homomorphic Filtering
+Program 5. Frequency Domain Filtering: Perform Fourier Transform and inverse Fourier Transform;
+apply Homomorphic filtering to correct uneven lighting and enhance contrast. 
 
 Anthony Pinto Robinson
 29/01/2026

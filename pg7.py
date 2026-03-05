@@ -1,4 +1,10 @@
-# Write a Python program to apply and compare Sobel, Prewitt, Roberts, and Canny edge detection techniques on a grayscale image.
+"""
+Program 7. Edge Detection: Implement edge detection algorithms like Sobel, Prewitt, Roberts, and
+Canny. 
+
+Anthony Pinto Robinson
+29/01/2026
+"""
 
 import cv2
 import numpy as np
