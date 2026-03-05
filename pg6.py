@@ -17,7 +17,7 @@ def add_gaussian_noise(image, sigma):
     return np.clip(image + noise, 0, 1)
 
 def motion_blur_kernel(size, angle):
-    kernel = np.zeros((siz*e, size))
+    kernel = np.zeros((size, size))
     center = size // 2
     cv2.line(kernel,(center, center),
              (center + int(np.cos(np.deg2rad(angle)) * center),
