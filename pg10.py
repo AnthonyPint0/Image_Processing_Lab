@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Load image in grayscale
-image = cv2.imread('black-and-white-eye.jpg', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('Images/jug_n_flower.png', cv2.IMREAD_GRAYSCALE)
 
 if image is None:
     print("Image not found")
