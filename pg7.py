@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-image = cv2.imread('lenagray.jpg', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('Images/bw_flower.png', cv2.IMREAD_GRAYSCALE)
 
 if image is None:
     print("Error: Image not found.")

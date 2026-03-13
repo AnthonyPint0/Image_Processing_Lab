@@ -39,7 +39,7 @@ def homomorphic_filter(image, sigma=10, gamma_l=0.3, gamma_h=1.5, c=1):
     result = np.real(np.exp(ifft) - 1)
     return np.clip(result, 0, 255).astype("uint8")
 
-img = cv2.imread('img2.jpeg', 0)
+img = cv2.imread('Images/trees.png', 0)
 
 # Apply filter
 enhanced_img = homomorphic_filter(img, sigma=20, gamma_l=0.2, gamma_h=1.8)

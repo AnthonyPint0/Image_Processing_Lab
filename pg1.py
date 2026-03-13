@@ -37,12 +37,12 @@ def transform_image(img):
     flip = cv2.flip(img, 0)
     return transl, flip
 
-img = read_image("sunflower.jpg")
+img = read_image("Images/pineapple.png")
 
 cv2.imshow("Original", img)
 cv2.waitKey(0)
 
-cv2.imwrite("beach.jpg", img)
+cv2.imwrite("pineapple_modified.png", img)
 
 img = pixel_operations(img)
 cv2.imshow("Pixel Changed", img)

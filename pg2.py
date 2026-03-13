@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread('black-and-white-eye.jpg')
+img = cv2.imread('Images/jug_n_flower.png')
 if img is None:
     print("Error: Image not found!")
     exit()
@@ -47,30 +47,20 @@ stretch_img = contrast_stretch(img_float)
 
 plt.figure(figsize=(12, 10))
 
-plt.subplot(2, 3, 1)
-plt.imshow(img_proc, cmap='gray' if is_gray else None)
-plt.title("Original Image")
-plt.axis('off')
+images = [img_proc, negative_img, log_img, power_img, stretch_img]
+titles = [
+    "Original Image",
+    "Negative",
+    "Log Transformation",
+    "Power-Law Transformation",
+    "Contrast Stretching"
+]
 
-plt.subplot(2, 3, 2)
-plt.imshow(negative_img, cmap='gray' if is_gray else None)
-plt.title("Negative")
-plt.axis('off')
-
-plt.subplot(2, 3, 3)
-plt.imshow(log_img, cmap='gray' if is_gray else None)
-plt.title("Log Transformation")
-plt.axis('off')
-
-plt.subplot(2, 3, 4)
-plt.imshow(power_img, cmap='gray' if is_gray else None)
-plt.title("Power-Law Transformation")
-plt.axis('off')
-
-plt.subplot(2, 3, 5)
-plt.imshow(stretch_img, cmap='gray' if is_gray else None)
-plt.title("Contrast Stretching")
-plt.axis('off')
+for i in range(len(images)):
+    plt.subplot(2, 3, i + 1)
+    plt.imshow(images[i], cmap='gray' if is_gray else None)
+    plt.title(titles[i])
+    plt.axis('off')
 
 plt.tight_layout()
 plt.show()

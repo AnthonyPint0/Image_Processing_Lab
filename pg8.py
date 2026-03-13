@@ -8,7 +8,7 @@ Anthony Pinto Robinson
 
 import cv2
 import matplotlib.pyplot as plt
-image = cv2.imread('lenagray.jpg', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('Images/frog.png', cv2.IMREAD_GRAYSCALE)
 if image is None:
     print("Image not found.")
     exit()

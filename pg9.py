@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 
-image = cv2.imread('image1.jpg', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('Images/landscape.png', cv2.IMREAD_GRAYSCALE)
 
 if image is None:
     print("Image not found")
