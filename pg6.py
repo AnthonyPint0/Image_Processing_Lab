@@ -51,10 +51,17 @@ def wiener_filter(degraded, psf, K):
     F = (H_conj / (np.abs(H)**2 + K)) * G
     return np.clip(np.abs(ifft2(F)), 0, 1)
 
-original = cv2.imread('Images/someflower.png', 0)
+original = cv2.imread('Images/someflower.png')
+
+if original is None:
+    print("Image not found")
+    exit()
+
 original = original.astype(np.float64) / 255.0
 
 psf = motion_blur_kernel(21, 11)
+
+print("PSF:\n", psf)
 
 blurred = convolve2d(original, psf, mode='same', boundary='symm')
 

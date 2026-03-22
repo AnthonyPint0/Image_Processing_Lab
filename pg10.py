@@ -14,6 +14,7 @@ image = cv2.imread('Images/jug_n_flower.png', cv2.IMREAD_GRAYSCALE)
 if image is None:
     print("Image not found")
     exit()
+    
 # 1. GLCM
 def compute_glcm(img, distance=1, angle=0):
     rows, cols = img.shape
@@ -71,15 +72,16 @@ print("Descriptor Shape:", descriptors.shape)
 sift_image = cv2.drawKeypoints(image, keypoints, None)
 
 # Display Results
+images = [image, sift_image]
+titles = ['Original Image', 'SIFT Keypoints']
+
 plt.figure(figsize=(10, 5))
 
-plt.subplot(1, 2, 1)
-plt.imshow(image, cmap='gray')
-plt.title("Original Image")
-plt.axis('off')
+for i in range(2):
+    plt.subplot(1, 2, i + 1)
+    plt.imshow(images[i], cmap='gray')
+    plt.title(titles[i])
+    plt.axis('off')
 
-plt.subplot(1, 2, 2)
-plt.imshow(sift_image, cmap='gray')
-plt.title("SIFT Keypoints")
-plt.axis('off')
+plt.tight_layout()
 plt.show()

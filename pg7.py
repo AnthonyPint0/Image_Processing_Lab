@@ -16,50 +16,48 @@ if image is None:
     print("Error: Image not found.")
     exit()
 
-# 1. Sobel Edge Detection
-sobel_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
-sobel_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
-sobel = cv2.magnitude(sobel_x, sobel_y)
+def roberts_edge_detection(image):
+    kernel_x = np.array([[ 1, 0],
+                         [ 0,-1]])  
+    kernel_y = np.array([[ 0, 1],
+                         [-1, 0]])
+    roberts_x = cv2.filter2D(image, cv2.CV_64F, kernel_x)
+    roberts_y = cv2.filter2D(image, cv2.CV_64F, kernel_y)
+    roberts = cv2.magnitude(np.float32(roberts_x), np.float32(roberts_y))
+    return roberts
 
-# 2. Prewitt Edge Detection (Manual Kernel)
-kernelx = np.array([[1, 0, -1],
-                    [1, 0, -1],
-                    [1, 0, -1]])
+def prewitt_edge_detection(image):
+    kernel_x = np.array([[ -1, 0, 1],
+                         [ -1, 0, 1],
+                         [ -1, 0, 1]])
+    kernel_y = np.array([[ 1, 1, 1],
+                         [ 0, 0, 0],
+                         [-1,-1,-1]])
+    prewitt_x = cv2.filter2D(image, cv2.CV_64F, kernel_x)
+    prewitt_y = cv2.filter2D(image, cv2.CV_64F, kernel_y)
+    prewitt = cv2.magnitude(np.float32(prewitt_x), np.float32(prewitt_y))
+    return prewitt
 
-kernely = np.array([[1,  1,  1],
-                    [0,  0,  0],
-                    [-1, -1, -1]])
+def sobel_edge_detection(image):
+    sobel_x = cv2.Sobel(image, cv2.CV_64F, 1, 0, ksize=3)
+    sobel_y = cv2.Sobel(image, cv2.CV_64F, 0, 1, ksize=3)
+    sobel = cv2.magnitude(np.float32(sobel_x), np.float32(sobel_y))
+    return sobel
 
-prewitt_x = cv2.filter2D(image, -1, kernelx)
-prewitt_y = cv2.filter2D(image, -1, kernely)
-prewitt = cv2.magnitude(np.float32(prewitt_x), np.float32(prewitt_y))
+def canny_edge_detection(image):
+    return cv2.Canny(image, 100, 200)
 
-# 3. Roberts Edge Detection
-roberts_x = np.array([[1, 0],
-                      [0, -1]])
+images = [image,
+          roberts_edge_detection(image),
+          prewitt_edge_detection(image),
+          sobel_edge_detection(image),
+          canny_edge_detection(image)]
 
-roberts_y = np.array([[0, 1],
-                      [-1, 0]])
-
-roberts_x_img = cv2.filter2D(image, -1, roberts_x)
-roberts_y_img = cv2.filter2D(image, -1, roberts_y)
-roberts = cv2.magnitude(np.float32(roberts_x_img),
-                        np.float32(roberts_y_img))
-# 4. Canny Edge Detection
-canny = cv2.Canny(image, 100, 200)
-
-# Display Results
 titles = ['Original',
           'Sobel',
           'Prewitt',
           'Roberts',
           'Canny']
-
-images = [image,
-          sobel,
-          prewitt,
-          roberts,
-          canny]
 
 plt.figure(figsize=(12, 8))
 

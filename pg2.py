@@ -10,10 +10,12 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread('Images/jug_n_flower.png')
+img = cv2.imread('Images/sunflower.jpg')
+
 if img is None:
     print("Error: Image not found!")
     exit()
+    
 if len(img.shape) == 2:
     is_gray = True
     img_proc = img.copy()

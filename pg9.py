@@ -18,7 +18,7 @@ if image is None:
     sys.exit()
     
 # 1️. REGION GROWING
-def region_growing(img, seed, threshold):
+def region_growing(img, seed, threshold=10):
     rows, cols = img.shape
     segmented = np.zeros((rows, cols), np.uint8)
     visited = np.zeros((rows, cols), bool)
@@ -40,7 +40,7 @@ def region_growing(img, seed, threshold):
     return segmented
 
 # 2️. REGION SPLITTING (Quadtree)
-def split_region(img, threshold):
+def split_region(img, threshold=100):
     segmented = np.zeros_like(img)
     def split(x, y, size):
         region = img[x:x+size, y:y+size]
@@ -60,7 +60,7 @@ def split_region(img, threshold):
     return segmented
 
 #  REGION MERGING (Simple)
-def merge_regions(img, threshold):
+def merge_regions(img, threshold=10):
     merged = img.copy()
     rows, cols = img.shape
     for i in range(rows - 1):
