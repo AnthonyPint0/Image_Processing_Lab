@@ -57,6 +57,7 @@ titles = [
     "Power-Law Transformation",
     "Contrast Stretching"
 ]
+plt.figure(figsize=(15, 10))
 
 for i in range(len(images)):
     plt.subplot(2, 3, i + 1)

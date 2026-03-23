@@ -1,63 +1,28 @@
-""" 
-Program 3. Image Quantization: Simulate image quantization by reducing bits per pixel and analyze
-visual degradation using Python.
-
-Anthony Pinto Robinson
-28/01/2026
-"""
+import cv2
 import numpy as np
 import matplotlib.pyplot as plt
-from skimage.io import imread
-from skimage.color import rgb2gray
-import os
 
-def quantize_image(image, bits):
-  if bits == 8:
-    return image.copy()
+def quantize(img, bits):
+    levels = 2 ** bits
+    step = 256 // levels
+    return (img // step) * step
 
-  num_levels = 2 ** bits
-  step_size = 256 / num_levels
+# 1. Read image
+img = cv2.imread('Images/eye.png', 0)  # directly grayscale
 
-  quantized = np.floor(image / step_size) * step_size
-  return quantized.astype(np.uint8)
+# 2. Quantization levels
+bits_list = [8, 4, 2, 1]
 
-def analyze_quantization(image_path):
+# 3. Process + Display
+plt.figure(figsize=(10,5))
 
-  if not os.path.exists(image_path):
-    print("Error: Image file not found!")
-    return
+for i, b in enumerate(bits_list):
+    q = quantize(img, b)
 
-  img = imread(image_path)
+    plt.subplot(1, 4, i+1)
+    plt.imshow(q, cmap='gray', vmin=0, vmax=255)
+    plt.title(f"{b} bits")
+    plt.axis('off')
 
-  if img.ndim == 3:
-    if img.shape[2] == 4: # Remove alpha channel if present
-      img = img[:, :, :3]
-    img = rgb2gray(img)
-    img = (img * 255).astype(np.uint8)
-
-  bits_per_pixel = [8, 4, 2, 1]
-
-  fig, axes = plt.subplots(1, len(bits_per_pixel), figsize=(18, 5))
-
-  for i, bits in enumerate(bits_per_pixel):
-    q_img = quantize_image(img, bits)
-
-    axes[i].imshow(q_img, cmap='gray', vmin=0, vmax=255)
-    axes[i].set_title(f"{bits} bits/pixel\n({2**bits} levels)")
-    axes[i].axis('off')
-
-    if bits == 8:
-      print("8 bpp: Original image (no degradation)")
-    elif bits == 4:
-      print("4 bpp: Slight banding visible")
-    elif bits == 2:
-      print("2 bpp: High degradation, posterization visible")
-    elif bits == 1:
-      print("1 bpp: Severe degradation, binary appearance")
-
-  plt.suptitle("Image Quantization and Visual Degradation Analysis")
-  plt.tight_layout()
-  plt.show()
-
-image_path = "Images/eye.png"
-analyze_quantization(image_path)
+plt.tight_layout()
+plt.show()

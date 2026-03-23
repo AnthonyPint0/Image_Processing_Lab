@@ -30,14 +30,11 @@ bilateral = cv2.bilateralFilter(image_rgb, 9, 75, 75)
 
 titles = ["Original Image", "Gaussian Filter", "Median Filter", "Bilateral Filter"]
 images = [image_rgb, gaussian, median, bilateral]
-
 plt.figure(figsize=(10, 8))
-
 for i in range(4):
     plt.subplot(2, 2, i+1)
     plt.imshow(images[i])
     plt.title(titles[i])
-    plt.axis('off')
-    
+    plt.axis('off')    
 plt.tight_layout()
 plt.show()
